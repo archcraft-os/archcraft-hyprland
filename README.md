@@ -1,0 +1,2 @@
+# archcraft-hyprland
+ // Configuration : Hyprland
