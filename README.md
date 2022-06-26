@@ -31,10 +31,6 @@
   - Copy Everything from _`dotfiles/STYLE`_ to **`~/.config/hypr`** : `cp -r ./dotfiles/dark/* ~/.config/hypr/` 
   - Logout and login to your amazingly configured Hyprland WM.
 
-> GTK themes, icons and cursor-theme are provided in **`gtk`** directory.
->
-> Fonts are provided in **`fonts`** directory.
->
 > If you don't want to build hyprland, You can install **compiled hyprland binaries** provided in `dotfiles/hypr-bin`
 >```
 >sudo install -Dm 755 dotfiles/hypr-bin/hyprctl /usr/bin/hyprctl
@@ -42,6 +38,15 @@
 >sudo install -Dm 755 dotfiles/hypr-bin/libwlroots.so.11032 /usr/lib/libwlroots.so.11032
 >sudo install -Dm 644 dotfiles/hypr-bin/hyprland.desktop /usr/share/wayland-sessions/hyprland.desktop
 >```
+
+### Appearance
+
+Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall appearance.
+
+- GTK Theme : [Manhattan gtk theme](https://github.com/archcraft-os/archcraft-themes/tree/main/archcraft-gtk-theme-manhattan)
+- Icon Theme : [Luv icon theme](https://github.com/Nitrux/luv-icon-theme)
+- Cursor Theme : [Qogir cursor theme](https://www.gnome-look.org/p/1366182/)
+- Fonts : [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip), [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip), [Icomoon Feather](https://github.com/archcraft-os/archcraft-packages/blob/main/archcraft-fonts/files/icon-fonts/Icomoon-Feather.ttf), [Archcraft](https://github.com/archcraft-os/archcraft-packages/blob/main/archcraft-fonts/files/icon-fonts/archcraft.ttf)
 
 ## Config Structure
 ```
@@ -112,6 +117,7 @@
 
 ### See Also
 
-| [**`archcraft-sway`**](https://github.com/archcraft-os/archcraft-sway) | [**`archcraft-wayfire`**](https://github.com/archcraft-os/archcraft-wayfire) | [**`archcraft-river`**](https://github.com/archcraft-os/archcraft-river) |
-| --- | --- | --- |
+| [**`archcraft-sway`**](https://github.com/archcraft-os/archcraft-sway) | [**`archcraft-wayfire`**](https://github.com/archcraft-os/archcraft-wayfire) | [**`archcraft-river`**](https://github.com/archcraft-os/archcraft-river) | [**`archcraft-newm`**](https://github.com/archcraft-os/archcraft-newm) |
+| --- | --- | --- | --- |
 |[![Sway](https://raw.githubusercontent.com/archcraft-os/archcraft-sway/main/screenshots/sway_6.png)](https://github.com/archcraft-os/archcraft-sway)|[![Wayfire](https://raw.githubusercontent.com/archcraft-os/archcraft-wayfire/main/screenshot.png)](https://github.com/archcraft-os/archcraft-wayfire)|[![River](https://raw.githubusercontent.com/archcraft-os/archcraft-river/main/screenshots/River_4.png)](https://github.com/archcraft-os/archcraft-river)|
+[![Newm](https://raw.githubusercontent.com/archcraft-os/archcraft-newm/main/screenshots/solid/newm_5.png)](https://github.com/archcraft-os/archcraft-newm)|
