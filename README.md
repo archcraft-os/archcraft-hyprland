@@ -22,7 +22,7 @@
 - **Web Browser** : `Firefox`
 
 ## Installation
-- **Get the files from** : [Ko-fi :coffee:](https://ko-fi.com/s/71d0e298d9)
+- **Get the files from** : [Ko-fi :coffee:](https://ko-fi.com/s/71d0e298d9) <sup>[**`Why Paid`**](https://github.com/adi1090x/adi1090x/blob/master/WHY.md)</sup>
 - Extract The file **hyprland.tar.gz** with : `tar -xzvf hyprland.tar.gz`
 - If you are using **`Archcraft`** as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-1.0-1-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-1.0-1-any.pkg.tar.zst` whichever style you like.
 - If you want to install this setup on _Arch Linux_ or on any _other distro_, follow the points below :
