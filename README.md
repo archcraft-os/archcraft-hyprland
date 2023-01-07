@@ -11,7 +11,7 @@
 [Hyprland](https://github.com/vaxerski/Hyprland) is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
 
 - **Operating System** : `Archcraft`
-- **Window Manager** : `Hyprland`
+- **Window Manager** : `Hyprland (0.20.0)`
 - **Status Bar** : `Waybar`
 - **Launcher** : `Wofi`
 - **Session Manager** : `Wlogout`
@@ -24,18 +24,18 @@
 ## Installation
 - **Get the files from** : [Ko-fi :coffee:](https://ko-fi.com/s/71d0e298d9) <sup>[**`Why Paid`**](https://github.com/adi1090x/adi1090x/blob/master/WHY.md)</sup>
 - Extract The file **hyprland.tar.gz** with : `tar -xzvf hyprland.tar.gz`
-- If you are using **`Archcraft`** as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-1.0-2-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-1.0-2-any.pkg.tar.zst` whichever style you like.
+- If you are using **`Archcraft`** (`Required: 2023 or later`) as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-1.0-2-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-2.0-0-any.pkg.tar.zst` whichever style you like.
 - If you want to install this setup on _Arch Linux_ or on any _other distro_, follow the points below :
-  - Install the following programs on your computer: [`hyprland`](https://github.com/vaxerski/Hyprland), `swaybg` `swayidle` `swaylock` `wlroots` `wl-clipboard` `waybar` `wofi` `foot` `mako` `grim` `slurp` `wf-recorder` `light` `yad` `thunar` `geany` `mpv` `mpd` `mpc` `viewnior` `imagemagick` `xfce-polkit` `xorg-xwayland`
+  - Install the following programs on your computer: [`hyprland`](https://github.com/vaxerski/Hyprland), `swaybg` `swayidle` `swaylock` `wlroots` `wl-clipboard` `waybar` `wofi` `foot` `mako` `grim` `slurp` `wf-recorder` `light` `yad` `thunar` `geany` `mpv` `mpd` `mpc` `viewnior` `imagemagick` `xfce-polkit` `xorg-xwayland` `xdg-desktop-portal-wlr`
   - After installing programs above, Create hypr directory in **`~/.config`** : `mkdir -p ~/.config/hypr`
   - Copy Everything from _`dotfiles/STYLE`_ to **`~/.config/hypr`** : `cp -r ./dotfiles/dark/* ~/.config/hypr/` 
   - Logout and login to your amazingly configured Hyprland WM.
 
-> If you don't want to build hyprland, You can install **compiled hyprland binaries** provided in `dotfiles/hypr-bin`
+> If you don't want to build hyprland, You can install **compiled hyprland binaries** from [hyprland releases](https://github.com/hyprwm/Hyprland/releases/tag/v0.20.0beta)
 >```
 >sudo install -Dm 755 dotfiles/hypr-bin/hyprctl /usr/bin/hyprctl
 >sudo install -Dm 755 dotfiles/hypr-bin/Hyprland /usr/bin/Hyprland
->sudo install -Dm 755 dotfiles/hypr-bin/libwlroots.so.11032 /usr/lib/libwlroots.so.11032
+>sudo install -Dm 755 dotfiles/hypr-bin/libwlroots.so.12032 /usr/lib/libwlroots.so.12032
 >sudo install -Dm 644 dotfiles/hypr-bin/hyprland.desktop /usr/share/wayland-sessions/hyprland.desktop
 >```
 
@@ -51,17 +51,18 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
 ## Config Structure
 ```
 ~/.config
-└── hypr              : Hyprland config directory
-    ├── foot          : Terminal config
-    ├── mako          : Notification daemon config
-    │   └── icons     : Notification icons
-    ├── scripts       : Various scripts for functionality
-    ├── wallpapers    : Wallpapers
-    ├── waybar        : Statusbar config
-    ├── wlogout       : Wlogout config
-    │   └── icons     : Session icons
-    ├── wofi          : Launcher config
-    └── hyprland.conf : Hyprland config file
+└── hypr               : Hyprland config directory
+    ├── foot           : Terminal config
+    ├── mako           : Notification daemon config
+    │   └── icons      : Notification icons
+    ├── scripts        : Various scripts for functionality
+    ├── wallpapers     : Wallpapers
+    ├── waybar         : Statusbar config
+    ├── wlogout        : Wlogout config
+    │   └── icons      : Session icons
+    ├── wofi           : Launcher config
+    ├── hyprland.conf  : Hyprland config file
+    └── hyprtheme.conf : Colors and theme elements file
 ```
 
 ## Keybindings
@@ -75,7 +76,7 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
 | <kbd>super + shift + F</kbd> | Open file manager |
 | <kbd>super + shift + E</kbd> | Open text editor |
 | <kbd>super + shift + W</kbd> | Open web browser|
-| <kbd>super + D</kbd> | Run app launcher |
+| <kbd>super</kbd>, <kbd>super + D</kbd> | Run app launcher |
 | <kbd>super + X</kbd> | Run powermenu |
 | <kbd>super + N</kbd> | Open network manager |
 | <kbd>super + P</kbd> | Run colorpicker |
@@ -85,16 +86,20 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
 | <kbd>super + F</kbd> | Toggle fullscreen mode |
 | <kbd>super + Space</kbd> | Toggle floating mode |
 | <kbd>super + S</kbd> | Toggle pseudo mode |
-| <kbd>super + Left</kbd> | Change focus to the left container |
-| <kbd>super + Right</kbd> | Change focus to the right container |
-| <kbd>super + Up</kbd> | Change focus to the upper container |
-| <kbd>super + Down</kbd> | Change focus to the lower container |
-| <kbd>super + shift + Left</kbd> | Move container to the left side |
-| <kbd>super + shift + Right</kbd> | Move container to the right side |
-| <kbd>super + shift + Up</kbd> | Move container to the upper side |
-| <kbd>super + shift + Down</kbd> | Move container to the lower side |
-| <kbd>super + 1,2..9</kbd> | Change workspace/tag from 1 to 9 |
-| <kbd>super + shift + 1,2..9</kbd> | Move active container to repective workspace/tag |
+| <kbd>super + Left / Right / Up / Down</kbd> | Change focus of the container |
+| <kbd>super + shift + Left / Right / Up / Down</kbd> | Move active container directionally |
+| <kbd>super + ctrl + Left / Right / Up / Down</kbd> | Resize active container |
+| <kbd>super + alt + Left / Right / Up / Down</kbd> | Move floationg container directionally |
+| <kbd>super + Tab</kbd> | Cycle between container |
+| <kbd>super + 1,2..8</kbd> | Change workspace/tag from 1 to 8 |
+| <kbd>super + shift + 1,2..8</kbd> | Move active container to repective workspace/tag |
+| <kbd>super + ctrl + F</kbd> | Toggle All floating mode |
+| <kbd>super + ctrl + S</kbd> | Toggle All pseudo mode |
+| <kbd>super + shift + P</kbd> | Pin floating container |
+| <kbd>super + shift + S</kbd> | Swap next container |
+| <kbd>super + G</kbd> | Toggle Group Mode |
+| <kbd>super + H</kbd> | Change active group container to left |
+| <kbd>super + L</kbd> | Change active group container to right |
 
 ## Screenshots
 
@@ -111,6 +116,7 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
 
 ## FYI
 - May or may not work on [**`Nvidia`**](https://wiki.archlinux.org/title/Sway#Installation), See [wayland requirements](https://wiki.archlinux.org/title/wayland#Requirements).
+- Follow the [hyprland wiki](https://wiki.hyprland.org/Nvidia/) to make Hyprland possibly work on Nvidia
 - Thank you for your support.
 
 ---
