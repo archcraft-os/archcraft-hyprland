@@ -24,7 +24,7 @@
 ## Installation
 - **Get the files from** : [Ko-fi :coffee:](https://ko-fi.com/s/71d0e298d9) <sup>[**`Why Paid`**](https://github.com/adi1090x/adi1090x/blob/master/WHY.md)</sup>
 - Extract The file **hyprland.tar.gz** with : `tar -xzvf hyprland.tar.gz`
-- If you are using **`Archcraft`** (`Required: 2023 or later`) as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-1.0-2-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-2.0-0-any.pkg.tar.zst` whichever style you like.
+- If you are using **`Archcraft`** (`Required: 2023 or later`) as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-2.0-0-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-2.0-0-any.pkg.tar.zst` whichever style you like.
 - If you want to install this setup on _Arch Linux_ or on any _other distro_, follow the points below :
   - Install the following programs on your computer: [`hyprland`](https://github.com/vaxerski/Hyprland), `swaybg` `swayidle` `swaylock` `wlroots` `wl-clipboard` `waybar` `wofi` `foot` `mako` `grim` `slurp` `wf-recorder` `light` `yad` `thunar` `geany` `mpv` `mpd` `mpc` `viewnior` `imagemagick` `xfce-polkit` `xorg-xwayland` `xdg-desktop-portal-wlr`
   - After installing programs above, Create hypr directory in **`~/.config`** : `mkdir -p ~/.config/hypr`
