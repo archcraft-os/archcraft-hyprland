@@ -1,6 +1,6 @@
 <h1 align="center">HYPRLAND</h1>
 
-[![Hyprland Video](screenshots/dark/hypr_dark_2.png)](https://youtu.be/t6Zd2F7rtPw)
+[![Hyprland Video](screenshots/dark/hypr_4.png)](https://youtu.be/t6Zd2F7rtPw)
 
 <p align="center">The ultimate Hyprland configuration (A Desktop Environment Like Experience)</p>
 
@@ -24,7 +24,7 @@
 ## Installation
 - **Get the files from** : [Ko-fi :coffee:](https://ko-fi.com/s/71d0e298d9) <sup>[**`Why Paid`**](https://github.com/adi1090x/adi1090x/blob/master/WHY.md)</sup>
 - Extract The file **hyprland.tar.gz** with : `tar -xzvf hyprland.tar.gz`
-- If you are using **`Archcraft`** (`Required: 2023 or later`) as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-3.0-0-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-3.0-0-any.pkg.tar.zst` whichever style you like.
+- If you are using **`Archcraft`** (`Required: 2023 or later`) as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-3.0-3-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-3.0-3-any.pkg.tar.zst` whichever style you like.
 - If you want to install this setup on _Arch Linux_ or on any _other distro_, follow the points below :
   - Install the following programs on your computer: [`hyprland`](https://github.com/vaxerski/Hyprland), `swaybg` `swayidle` `swaylock` `wlroots` `wl-clipboard` `waybar` `wofi` `foot` `mako` `grim` `slurp` `wf-recorder` `light` `yad` `thunar` `geany` `mpv` `mpd` `mpc` `viewnior` `imagemagick` `xfce-polkit` `xorg-xwayland` `xdg-desktop-portal-wlr` `playerctl`
   - After installing programs above, Create hypr directory in **`~/.config`** : `mkdir -p ~/.config/hypr`
@@ -74,6 +74,29 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
 >
 > But, If you want to use **Spotify** instead of **MPD**, Edit the config file `~/.config/hypr/waybar/config` and uncomment the spotify module (and, comment the MPD module as well).
 
+## Nvidia
+If you're on `Archcraft` and install the provided package, There's nothing else you need to do in order to run it on Nvidia machine. The package's post_installation script does it all, And the compositor should work fine.
+
+If you're running any other distribution and want to install this setup on your Nvidia machine, You need to do some tweaking. In this guide, I'm assuing you're using **Arch Linux**. Follow the steps below to make this wayland compositor work on Nvidia :
+
+- Install **Nvidia Drivers** on your system. [NVIDIA](https://wiki.archlinux.org/title/NVIDIA) 
+- Edit `/etc/mkinitcpio.conf` file and add **`nvidia`** kernel modules
+```
+MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+```
+
+- In the same file, Remove `kms` hook from hooks array if present.
+- Rebuild your initrd file with : `sudo mkinitcpio -P linux`
+- Edit `/etc/default/grub` file and add **`nvidia_drm.modeset=1`** kernel parameter for Nvidia
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia_drm.modeset=1 ..."
+```
+
+- Update your grub config file with : `sudo grub-mkconfig -o /boot/grub/grub.cfg`
+- Reboot your Nvidia Machine and login to your wayland compositor, It should work now.
+
+More Information: [NVIDIA#Installation](https://wiki.archlinux.org/title/NVIDIA#Installation), [NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
+
 ## Keybindings
 
 | Keys | Action |
@@ -113,20 +136,14 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
 ## Screenshots
 
 **`Dark Version`**
-| Desktop (wofi) | Floating | Tiled | Thunar, Geany | Wlogout |
-| --- | --- | --- | --- | --- |
-|![hypr](screenshots/dark/hypr_dark_1.png)|![hypr](screenshots/dark/hypr_dark_2.png)|![hypr](screenshots/dark/hypr_dark_3.png)|![hypr](screenshots/dark/hypr_dark_4.png)|![hypr](screenshots/dark/hypr_dark_5.png)|
+| Screenshot 1 | Screenshot 2 | Screenshot 3 | Screenshot 4 |
+| --- | --- | --- | --- |
+|![hypr](screenshots/dark/hypr_1.png)|![hypr](screenshots/dark/hypr_2.png)|![hypr](screenshots/dark/hypr_3.png)|![hypr](screenshots/dark/hypr_4.png)|
 
 **`Catppuccin Version`**
-| Desktop (wofi) | Floating | Tiled | Thunar, Geany | Wlogout |
-| --- | --- | --- | --- | --- |
-|![hypr](screenshots/catppuccin/hypr_catppuccin_1.png)|![hypr](screenshots/catppuccin/hypr_catppuccin_2.png)|![hypr](screenshots/catppuccin/hypr_catppuccin_3.png)|![hypr](screenshots/catppuccin/hypr_catppuccin_4.png)|![hypr](screenshots/catppuccin/hypr_catppuccin_5.png)|
-
-
-## FYI
-- May or may not work on [**`Nvidia`**](https://wiki.archlinux.org/title/Sway#Installation), See [wayland requirements](https://wiki.archlinux.org/title/wayland#Requirements).
-- Follow the [hyprland wiki](https://wiki.hyprland.org/Nvidia/) to make Hyprland possibly work on Nvidia
-- Thank you for your support.
+| Screenshot 1 | Screenshot 2 | Screenshot 3 | Screenshot 4 |
+| --- | --- | --- | --- |
+|![hypr](screenshots/catppuccin/hypr_1.png)|![hypr](screenshots/catppuccin/hypr_2.png)|![hypr](screenshots/catppuccin/hypr_3.png)|![hypr](screenshots/catppuccin/hypr_4.png)|
 
 ---
 
