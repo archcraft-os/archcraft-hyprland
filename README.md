@@ -11,7 +11,7 @@
 [Hyprland](https://github.com/vaxerski/Hyprland) is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
 
 - **Operating System** : `Archcraft`
-- **Window Manager** : `Hyprland (0.22.0)`
+- **Window Manager** : `Hyprland (0.26.0)`
 - **Status Bar** : `Waybar`
 - **Launcher** : `Rofi` / `Wofi`
 - **Session Manager** : `Rofi` / `Wlogout`
@@ -24,14 +24,16 @@
 ## Installation
 - **Get the files from** : [Ko-fi :coffee:](https://ko-fi.com/s/71d0e298d9) <sup>[**`Why Paid`**](https://github.com/adi1090x/adi1090x/blob/master/WHY.md)</sup>
 - Extract The file **hyprland.tar.gz** with : `tar -xzvf hyprland.tar.gz`
-- If you are using **`Archcraft`** (`Required: 2023 or later`) as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-3.0-3-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-3.0-3-any.pkg.tar.zst` whichever style you like.
+- If you are using **`Archcraft`** (`Required: 2023 or later`) as your OS, You can just install one of the provided package with : `sudo pacman -U archcraft-hyprland-4.0-0-any.pkg.tar.zst` or `sudo pacman -U archcraft-hyprland-catppuccin-4.0-0-any.pkg.tar.zst` whichever style you like.
 - If you want to install this setup on _Arch Linux_ or on any _other distro_, follow the points below :
-  - Install the following programs on your computer: [`hyprland`](https://github.com/vaxerski/Hyprland), `swaybg` `swayidle` `swaylock` `wlroots` `wl-clipboard` `waybar` `wofi` `foot` `mako` `grim` `slurp` `wf-recorder` `light` `yad` `thunar` `geany` `mpv` `mpd` `mpc` `viewnior` `imagemagick` `xfce-polkit` `xorg-xwayland` `xdg-desktop-portal-wlr` `playerctl`
+  - Install the following programs on your computer: [`hyprland`](https://github.com/vaxerski/Hyprland), `swaybg` `swayidle` `swaylock` `wlroots` `wl-clipboard` `waybar` `wofi` `foot` `mako` `grim` `slurp` `wf-recorder` `light` `yad` `thunar` `geany` `mpv` `mpd` `mpc` `viewnior` `imagemagick` `xfce-polkit` `xorg-xwayland` `xdg-desktop-portal-wlr` `playerctl` `pastel` `python-pywal` `alacritty` `rofi` `pulsemixer`
   - After installing programs above, Create hypr directory in **`~/.config`** : `mkdir -p ~/.config/hypr`
   - Copy Everything from _`dotfiles/STYLE`_ to **`~/.config/hypr`** : `cp -r ./dotfiles/dark/* ~/.config/hypr/` 
   - Logout and login to your amazingly configured Hyprland WM.
 
-> If you don't want to build hyprland, You can install **compiled hyprland binaries** from [hyprland releases](https://github.com/hyprwm/Hyprland/releases/tag/v0.20.0beta)
+> Hyprland now available in Arch Linux Repos, So Arch Linux users can install it via pacman.
+>
+> For other distro, If you don't want to build hyprland, You can install **compiled hyprland binaries** from [hyprland releases](https://github.com/hyprwm/Hyprland/releases)
 >```
 >sudo install -Dm 755 dotfiles/hypr-bin/hyprctl /usr/bin/hyprctl
 >sudo install -Dm 755 dotfiles/hypr-bin/Hyprland /usr/bin/Hyprland
@@ -52,11 +54,13 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
 ```
 ~/.config
 └── hypr               : Hyprland config directory
-    ├── foot           : Terminal config
+    ├── alacritty     : Alacritty Terminal config
+    ├── foot          : Foot Terminal config
     ├── mako           : Notification daemon config
     │   └── icons      : Notification icons
     ├── rofi           : Rofi config files
     ├── scripts        : Various scripts for functionality
+    ├── theme         : Current Theme and Pywal Themes
     ├── wallpapers     : Wallpapers
     ├── waybar         : Statusbar config
     ├── wlogout        : Wlogout config
@@ -66,9 +70,9 @@ Install the following `theme`, `icon pack`, `cursors` and `fonts` for overall ap
     └── hyprtheme.conf : Colors and theme elements file
 ```
 
-> By default, **`wofi`** is used as app launcher.
+> By default, **[rofi](https://github.com/lbonn/rofi)** is used as app launcher.
 >
-> But, If you want to use **rofi** instead of **wofi**, First make sure you install the [wayland fork of rofi](https://github.com/lbonn/rofi). Edit the config file `~/.config/hypr/hyprland.conf` and uncomment rofi keybindings (and, comment the wofi stuff as well).
+> But, If you want to use **wofi** instead of **rofi**, Edit the config file `~/.config/hypr/hyprland.conf` and uncomment wofi keybindings (and, comment the rofi stuff as well).
 
 > By default, **`MPD`** is used on waybar for music.
 >
@@ -101,16 +105,26 @@ More Information: [NVIDIA#Installation](https://wiki.archlinux.org/title/NVIDIA#
 
 | Keys | Action |
 | --- | --- |
-| <kbd>super + Return</kbd> | Open terminal |
-| <kbd>super + shift + Return</kbd> | Open floating terminal |
-| <kbd>super + alt + Return</kbd> | Open terminal with selected geometry |
-| <kbd>super + T</kbd> | Open full-screen terminal with big fonts |
+| <kbd>super + Return</kbd> | Open terminal (alacritty)|
+| <kbd>super + shift + Return</kbd> | Open floating terminal (alacritty)|
+| <kbd>super + T</kbd> | Open fullscreen terminal (alacritty)|
+| <kbd>super + Return</kbd> | Open terminal (foot)|
+| <kbd>super + shift + Return</kbd> | Open floating terminal (foot)|
+| <kbd>super + alt + Return</kbd> | Open terminal with custom geometry (foot)|
+| <kbd>super + T</kbd> | Open fullscreen terminal (foot)|
 | <kbd>super + shift + F</kbd> | Open file manager |
 | <kbd>super + shift + E</kbd> | Open text editor |
 | <kbd>super + shift + W</kbd> | Open web browser|
-| <kbd>super</kbd>, <kbd>super + D</kbd> | Run app launcher |
-| <kbd>super + X</kbd> | Run powermenu |
+| <kbd>super</kbd>, <kbd>super + D</kbd> | App launcher (rofi)|
+| <kbd>super + R</kbd> | Command Runner (rofi)|
+| <kbd>super + N</kbd> | Network Menu (rofi)|
+| <kbd>super + B</kbd> | Bluetooth Menu (rofi)|
+| <kbd>super + X</kbd> | Power Menu (rofi)|
+| <kbd>super + M</kbd> | Music Player (rofi)|
+| <kbd>super + A</kbd> | Screenshot Applet (rofi)|
+| <kbd>super</kbd>, <kbd>super + D</kbd> | Run app launcher (wofi)|
 | <kbd>super + N</kbd> | Open network manager |
+| <kbd>super + X</kbd> | Run session manager (wlogout)|
 | <kbd>super + P</kbd> | Run colorpicker |
 | <kbd>super + C/Q</kbd> | Kill active window |
 | <kbd>ctrl + alt + L</kbd> | Run lockscreen |
